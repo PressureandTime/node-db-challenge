@@ -1,12 +1,24 @@
 const db = require('../dbConfig.js');
 
 module.exports = {
-  get,
   addProject,
   addAction,
+  findById,
+  findProjectActions,
 };
 
-function get(id) {}
+function findById(id) {
+  return db('projects')
+    .where({ id })
+    .first();
+}
+
+function findProjectActions(project_id){
+  return db('actions')
+  .where({project_id})
+
+}
+
 
 // function findById(id) {
 //   return db('actions')
