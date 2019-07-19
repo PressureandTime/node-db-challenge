@@ -31,6 +31,22 @@ router.post('/', async (req, res) => {
 });
 
 
+router.post('/action', async (req, res) => {
+  try {
+    const action = await Projects.addAction(req.body);
+    res.status(201).json(action);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: 'Error adding the action',
+    });
+  }
+});
+
+
+
+
+
 
 
 module.exports = router;
